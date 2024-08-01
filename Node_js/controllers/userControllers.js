@@ -117,28 +117,28 @@ const loginUser = async (req, res) => {
             }
         }
 
-    //     // Reset login attempts on successful login
-    //     user.loginAttempts = 0;
-    //     user.isLocked = false;
-    //     user.lockUntil = null;
-    //     await user.save();
+        // Reset login attempts on successful login
+        user.loginAttempts = 0;
+        user.isLocked = false;
+        user.lockUntil = null;
+        await user.save();
 
-    //     const token = jwt.sign(
-    //         { id: user._id, isAdmin: user.isAdmin },
-    //         process.env.JWT_TOKEN_SECRET
-    //     );
+        const token = jwt.sign(
+            { id: user._id, isAdmin: user.isAdmin },
+            process.env.JWT_TOKEN_SECRET
+        );
 
-    //     res.status(200).json({
-    //         success: true,
-    //         token: token,
-    //         userData: user,
-    //         message: "User logged in successfully."
-    //     });
+        res.status(200).json({
+            success: true,
+            token: token,
+            userData: user,
+            message: "User logged in successfully."
+        });
 
-    // } catch (error) {
-    //     console.log(error);
-    //     res.json(error);
-    // }
+    } catch (error) {
+        console.log(error);
+        res.json(error);
+    }
 };
 
 module.exports = {

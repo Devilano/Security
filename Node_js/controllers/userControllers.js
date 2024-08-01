@@ -39,8 +39,8 @@ const createUser = async (req, res) => {
             citizenNo: citizenNo,
             password: encryptedPass,
             loginAttempts: 0, // Initialize loginAttempts
-            isLocked: false, // Initialize account lock status
-            lockUntil: null, // Initialize lockUntil timestamp
+            // isLocked: false, // Initialize account lock status
+            // lockUntil: null, // Initialize lockUntil timestamp
         });
 
         console.log(newUser);
@@ -95,27 +95,27 @@ const loginUser = async (req, res) => {
             }
         }
 
-        const passwordToCompare = user.password;
-        const isMatch = await bcrypt.compare(password, passwordToCompare);
+        // const passwordToCompare = user.password;
+        // const isMatch = await bcrypt.compare(password, passwordToCompare);
 
-        if (!isMatch) {
-            user.loginAttempts += 1;
-            if (user.loginAttempts >= 3) {
-                user.isLocked = true;
-                user.lockUntil = Date.now() + LOCK_DURATION;
-                await user.save();
-                return res.json({
-                    success: false,
-                    message: "Account locked due to multiple failed attempts. Please try again after 2 minutes."
-                });
-            } else {
-                await user.save();
-                return res.json({
-                    success: false,
-                    message: `Password does not match. You have ${3 - user.loginAttempts} attempt(2) remaining.`
-                });
-            }
-        }
+        // if (!isMatch) {
+        //     user.loginAttempts += 1;
+        //     if (user.loginAttempts >= 3) {
+        //         user.isLocked = true;
+        //         user.lockUntil = Date.now() + LOCK_DURATION;
+        //         await user.save();
+        //         return res.json({
+        //             success: false,
+        //             message: "Account locked due to multiple failed attempts. Please try again after 2 minutes."
+        //         });
+        //     } else {
+        //         await user.save();
+        //         return res.json({
+        //             success: false,
+        //             message: `Password does not match. You have ${3 - user.loginAttempts} attempt(2) remaining.`
+        //         });
+        //     }
+        // }
 
         // Reset login attempts on successful login
         user.loginAttempts = 0;

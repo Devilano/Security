@@ -1,5 +1,12 @@
 import axios from "axios";
 
+const Api = axios.create({
+    baseURL: "https://localhost:5000", // Change to HTTPS and correct port
+    withCredentials: true,
+    headers: {
+        "Content-Type": "multipart/form-data",
+    }
+});
 
 // Separate header for authorization
 const config = {

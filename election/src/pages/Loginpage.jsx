@@ -42,38 +42,7 @@ const Login = () => {
       password: password
     };
 
-    loginUserApi(data)
-      .then((res) => {
-        if (res.data.success === false) {
-          const failedAttempts = parseInt(localStorage.getItem('failedAttempts')) || 0;
-          if (failedAttempts >= 2) {
-            const lockEndTime = new Date().getTime() + 2 * 60 * 1000; // 2 minutes lock time
-            localStorage.setItem('lockEndTime', lockEndTime);
-            setIsLocked(true);
-            setLockTime(lockEndTime);
-            toast.error("Too many failed attempts. Your account is locked for 2 minutes.");
-          } else {
-            localStorage.setItem('failedAttempts', failedAttempts + 1);
-            toast.error(res.data.message || "Password does not match.");
-          }
-        } else {
-          localStorage.removeItem('failedAttempts');
-          localStorage.removeItem('lockEndTime');
-          toast.success(res.data.message);
-          localStorage.setItem('token', res.data.token);
-          const jsonDecode = JSON.stringify(res.data.userData);
-          localStorage.setItem('user', jsonDecode);
-
-          const isAdmin = res.data.userData.isAdmin;
-
-          if (isAdmin) {
-            navigate('/dashboard');
-          } else {
-            navigate('/home');
-          }
-        }
-      })
-      .catch((err) => {
+    
         toast.error('Server Error');
         console.log(err.message);
       });

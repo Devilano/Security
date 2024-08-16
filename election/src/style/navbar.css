@@ -1,0 +1,63 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  /* navbar.css */
+
+.navbar {
+  background-color: #203080; /* Dark blue */
+  border: 5px solid #264fb0; /* White border */
+  border-radius: 50px; /* Curved border */
+  padding: 10px 20px; /* Adjust padding for top/bottom and left/right */
+  transition: opacity 0.5s ease-in-out; /* Add transition for smoother effect */
+}
+
+.navbar.navbar-scroll {
+  opacity: 0.0; /* Adjust the opacity as needed */
+}
+
+  
+  
+  .navbar-brand img {
+    width: 80px; /* Adjust the width of the logo */
+    height: auto; /* Keep aspect ratio */
+    background-color: aliceblue;
+    border: 5px solid #3056ae; /* White border */
+
+    border-radius: 75px;
+    
+  }
+  
+  .navbar-brand-text {
+    text-align: center;
+    color: #FFFFFF; /* White */
+    font-size: 20px; /* Adjust the font size of the brand text */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #FFFFFF; /* White */
+    font-size: 16px; /* Adjust the font size of the nav links */
+  }
+  
+  .navbar-toggler-icon {
+    color: #FFFFFF; /* White */
+  }
+  
+  .navbar-text .bg-secondry {
+    background-color: #203080; /* Dark red */
+    color: #FFFFFF; /* White */
+    border: 6px solid #e8eaef; /* White border */
+    border-radius: 50px; /* Curved border */
+
+  }
+  
+  .navbar.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+  }
+  
+  
+  

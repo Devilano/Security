@@ -1,0 +1,19 @@
+.article05 {
+    border: 2px solid #ddd;
+    padding: 20px;
+    position: relative;
+    z-index: 1; /* Ensure section is above the navbar */
+    animation: slideIn 1s ease forwards; /* Apply slideIn animation */
+  }
+  
+  /* Zoom on hover effect */
+  .zoom-hover:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Keyframes for slideIn animation */
+  @keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  

@@ -120,7 +120,15 @@ const Register = () => {
     return isValid;
   };
 
-  
+  const isValidCitizenNo = (citizenNo) => {
+    const nepaliCitizenNoPattern = /^[0-9]{6}[0-9]{4}[0-9]{1}$/;
+    return nepaliCitizenNoPattern.test(citizenNo);
+  };
+
+  const isValidPassword = (password) => {
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordPattern.test(password);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
